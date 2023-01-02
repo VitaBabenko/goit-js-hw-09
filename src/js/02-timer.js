@@ -13,12 +13,12 @@ const options = {
     } else {
       button.removeAttribute('disabled');
     }
-    let selectedDate = selectedDates[0].getTime();
-    console.log('selectedDate', selectedDate);
+    console.log(selectedDates[0]);
   },
 };
 
 flatpickr("#datetime-picker", options);
+
 
 const button = document.querySelector('button[data-start]');
 button.setAttribute('disabled', 'true');
@@ -27,10 +27,11 @@ button.setAttribute('disabled', 'true');
 button.addEventListener('click', onClickStartBtn);
 
 function onClickStartBtn(evt) {
-  const startTime = Date.now();
-  console.log('startTime', startTime)
   
   setInterval(() => {
+    const startTime = Date.now();
+    console.log('startTime', startTime);
+
     const deltaTime = options.selectedDate - startTime;
     console.log(deltaTime)
     const { days, hours, minutes, seconds } = convertMs(deltaTime);

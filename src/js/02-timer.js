@@ -2,6 +2,8 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 
+let selectedDates = null;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -17,11 +19,14 @@ const options = {
   },
 };
 
+selectedDates = 
+
 flatpickr("#datetime-picker", options);
 
 
 const button = document.querySelector('button[data-start]');
 button.setAttribute('disabled', 'true');
+
 // let timerId = null;
 
 button.addEventListener('click', onClickStartBtn);
@@ -32,7 +37,8 @@ function onClickStartBtn(evt) {
     const startTime = Date.now();
     console.log('startTime', startTime);
 
-    const deltaTime = options.selectedDate - startTime;
+console.log('selectedDates', selectedDates[0])
+    const deltaTime = options.selectedDates - startTime;
     console.log(deltaTime)
     const { days, hours, minutes, seconds } = convertMs(deltaTime);
     console.log(`${days}:${hours}:${minutes}:${seconds}`);

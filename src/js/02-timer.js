@@ -16,68 +16,25 @@ const options = {
       selectedDate = selectedDates[0];
       button.removeAttribute('disabled');
     }
-    console.log('selectedDates[0]', selectedDates[0]);
+    // console.log(selectedDates[0]);
   },
 };
 
 flatpickr("#datetime-picker", options);
 
 const button = document.querySelector('button[data-start]');
-// const timer = document.querySelector('.timer');
-
-// const field = document.querySelectorAll('.field');
 const daysSpan = document.querySelector('span[data-days]');
 const hoursSpan = document.querySelector('span[data-hours]');
 const minutesSpan = document.querySelector('span[data-minutes]');
 const secondsSpan = document.querySelector('span[data-seconds]');
-// const label = document.querySelectorAll('.label');
-
-
-
-
-// timer.style.display = 'flex';
-// timer.style.marginTop = '15px';
-// field[0].style.fontSize = '35px';
-// field[1].style.fontSize = '35px';
-// field[2].style.fontSize = '35px';
-// field[3].style.fontSize = '35px';
-
-// field[0].style.marginRight = '15px';
-// field[1].style.marginRight = '15px';
-// field[2].style.marginRight = '15px';
-
-// daysSpan.style.display = 'flex';
-// hoursSpan.style.display = 'flex';
-// minutesSpan.style.display = 'flex';
-// secondsSpan.style.display = 'flex';
-
-// label[0].style.fontSize = '13px';
-// label[1].style.fontSize = '13px';
-// label[2].style.fontSize = '13px';
-// label[3].style.fontSize = '13px';
-
-// label[0].style.textTransform = 'uppercase';
-// label[1].style.textTransform = 'uppercase';
-// label[2].style.textTransform = 'uppercase';
-// label[3].style.textTransform = 'uppercase';
-
-// label[0].style.fontWeight = '600';
-// label[1].style.fontWeight = '600';
-// label[2].style.fontWeight = '600';
-// label[3].style.fontWeight = '600';
-
 
 button.setAttribute('disabled', 'true');
-
 button.addEventListener('click', onClickStartBtn);
 
 function onClickStartBtn(evt) {
-  
   const intervalId = setInterval(() => {
     const startTime = Date.now();
-    // console.log('startTime', startTime);
     const deltaTime = selectedDate - startTime;
-    // console.log(deltaTime);
     const { days, hours, minutes, seconds } = convertMs(deltaTime);
     
     daysSpan.textContent = days;
@@ -85,7 +42,7 @@ function onClickStartBtn(evt) {
     minutesSpan.textContent = minutes;
     secondsSpan.textContent = seconds;
 
-    console.log(`${days}:${hours}:${minutes}:${seconds}`);
+    // console.log(`${days}:${hours}:${minutes}:${seconds}`);
     if (deltaTime < 1000) {
       clearInterval(intervalId);
       return;

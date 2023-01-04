@@ -11,7 +11,7 @@ form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(evt) {
   evt.preventDefault();
   
-  for (let i = 0; i <= Number(amount.value); i += 1) {
+  for (let i = 1; i <= Number(amount.value); i += 1) {
     const delayStep = Number(delay.value) + Number(step.value) * (i - 1);
     createPromise(i, delayStep)
       .then(({ position, delay }) => {
@@ -21,6 +21,7 @@ function onFormSubmit(evt) {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
       })
   }
+  form.reset();
 }
 
 function createPromise(position, delay) {

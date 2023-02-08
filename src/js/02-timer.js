@@ -16,7 +16,6 @@ const options = {
       selectedDate = selectedDates[0];
       button.removeAttribute('disabled');
     }
-    // console.log(selectedDates[0]);
   },
 };
 
@@ -42,7 +41,6 @@ function onClickStartBtn(evt) {
     minutesSpan.textContent = minutes;
     secondsSpan.textContent = seconds;
 
-    // console.log(`${days}:${hours}:${minutes}:${seconds}`);
     if (deltaTime < 1000) {
       clearInterval(intervalId);
       return;
